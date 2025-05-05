@@ -8,13 +8,21 @@ public class StudentSort {
         String name;
         String address;
 
-        // Constructor
+        // Constructor with exception
         Student(int rollno, String name, String address) {
+            if (rollno < 0) {
+                throw new IllegalArgumentException("Roll number cannot be negative.");
+            }
+            if (name == null || address == null) {
+                throw new IllegalArgumentException("Name and address cannot be null.");
+            }
+
             this.rollno = rollno;
             this.name = name;
             this.address = address;
         }
 
+        // Print out order
         public String toString() {
             return rollno + " - " + name + " - " + address;
         }
